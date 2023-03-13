@@ -1,0 +1,90 @@
+create database carros
+
+use carros
+
+create table veiculos(
+Placa varchar(7) primary key not null,
+Marca varchar(20) not null,
+Modelo varchar(20) not null,
+Cor varchar(20) not null,
+Opcionais varchar(100),
+Ano int not null,
+valorDeCompra float not null
+)
+
+insert into veiculos
+(Placa,Marca,Modelo,Cor,Opcionais,Ano,valorDeCompra)
+values('DAB1444','CHEVROLET','Onix','Branco',null,2014,41380)
+
+insert into veiculos
+(Placa,Marca,Modelo,Cor,Opcionais,Ano,valorDeCompra)
+values('DAB2222','CHEVROLET','Onix','Preto',null,2014,41380)
+
+insert into veiculos
+(Placa,Marca,Modelo,Cor,Opcionais,Ano,valorDeCompra)
+values('DAB3939','CHEVROLET','Onix','Marrom',null,2014,41380)
+
+insert into veiculos
+(Placa,Marca,Modelo,Cor,Opcionais,Ano,valorDeCompra)
+values('MOB4234','VOLKS','Fox','Prata',null,2010,28883)
+
+insert into veiculos
+(Placa,Marca,Modelo,Cor,Opcionais,Ano,valorDeCompra)
+values('LOB9324','VOLKS','Fox','Preto',null,2010,28883)
+
+insert into veiculos
+(Placa,Marca,Modelo,Cor,Opcionais,Ano,valorDeCompra)
+values('BOB4354','VOLKS','Fox','Branco',null,2010,28883)
+
+insert into veiculos
+(Placa,Marca,Modelo,Cor,Opcionais,Ano,valorDeCompra)
+values('JAB4499','FORD','Ecosport','Branco',null,2009,31700)
+
+insert into veiculos
+(Placa,Marca,Modelo,Cor,Opcionais,Ano,valorDeCompra)
+values('JEB9090','FORD','Ecosport','Preto',null,2009,31700)
+
+insert into veiculos
+(Placa,Marca,Modelo,Cor,Opcionais,Ano,valorDeCompra)
+values('JOB1232','FORD','Ecosport','Azul',null,2009,31700)
+
+insert into veiculos
+(Placa,Marca,Modelo,Cor,Opcionais,Ano,valorDeCompra)
+values('FAB9922','FIAT','Uno','Azul',null,2009,30075)
+
+select * from veiculos
+
+alter table veiculos
+add valorDeVenda float
+update veiculos set valorDeVenda=valorDeCompra*1.4
+
+delete from veiculos 
+where Placa='FAB9922'
+
+alter table veiculos
+add cidadeRegistro varchar(30)
+
+update veiculos set cidadeRegistro='São Paulo'
+where Marca='CHEVROLET'
+
+update veiculos set cidadeRegistro='Belem'
+where Marca='VOLKS'
+
+update veiculos set cidadeRegistro='Rio de Janeiro'
+where Marca='FORD'
+
+update veiculos set valorDeVenda=valorDeVenda-(valorDeVenda*0.1)
+where Ano>2000 and Ano<2005
+
+update veiculos set valorDeVenda=valorDeVenda-(valorDeVenda*0.05)
+where Ano>2013
+
+update veiculos set valorDeVenda=valorDeVenda*1.03
+where Marca='FORD'
+
+update veiculos set valorDeVenda=valorDeVenda-(valorDeVenda*0.05)
+where Modelo='Palio'
+
+alter table veiculos
+drop column Opcionais
+
